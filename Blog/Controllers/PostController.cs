@@ -17,5 +17,10 @@ namespace Blog.Controllers
             _postRepository = postRepository;
             _categoryRepository = categoryRepository;
         }
+
+        public ViewResult Show()
+        {
+            return View();
+        }
     }
 }
