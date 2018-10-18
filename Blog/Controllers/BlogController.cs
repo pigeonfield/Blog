@@ -19,16 +19,19 @@ namespace Blog.Controllers
             _categoryRepository = categoryRepository;
         }
 
+       
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet("about")]
         public IActionResult About()
         {
             return View();
         }
 
+        [HttpGet("posts")]
         public IActionResult Posts()
         {
             PostsListViewModel postsListViewModel = new PostsListViewModel();
@@ -38,6 +41,7 @@ namespace Blog.Controllers
             return View(postsListViewModel);
         }
 
+        [HttpGet("contact")]
         public IActionResult Contact()
         {
             return View();
