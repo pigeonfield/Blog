@@ -24,9 +24,9 @@ namespace Blog
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<ICategoryRepository, MockCategoryRepository>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IPostRepository, PostRepository>();
             services.AddMvc();
         }
@@ -39,8 +39,7 @@ namespace Blog
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
-
-
+            
 
             app.UseMvc(routes =>
             {
@@ -48,7 +47,6 @@ namespace Blog
                     name: "default",
                     template: "{controller=Blog}/{action=Index}/{id?}"
                     );
-
 
             });
         }

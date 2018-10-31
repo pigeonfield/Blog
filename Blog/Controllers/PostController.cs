@@ -18,10 +18,10 @@ namespace Blog.Controllers
             _categoryRepository = categoryRepository;
         }
 
-        public IActionResult Create()
-        {
-            return 
-        }
+        //public IActionResult Create()
+        //{
+        //    return 
+        //}
 
         public ViewResult Show()
         {
