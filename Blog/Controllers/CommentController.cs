@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Controllers
 {
+    [Route("[controller]")]
     public class CommentController : Controller
     {
         public IActionResult Create()

@@ -10,13 +10,15 @@
                     <div class="images-container">
 
                         <img class="thumbnail img-responsive" src="~/Images/@post.ImageThumbnailUrl" alt="" />
-                        <button style="z-index:2; position: absolute">
-                            <div>
-                                <h3>@post.Title</h3>
-                                <h4>@post.Date</h4>
+                        <a asp-controller="Post" asp-action="Show" asp-route-id="@post.PostId" class="btn btn-default btn-custom" >
+                            
+                                <div>
+                                    <h4>@post.Title</h4>
+                                    <h6>@post.Date.ToString("dd/MM/yyyy")</h6>
 
-                            </div>
-                        </button>
+                                </div>
+                            
+                        </a>
                     </div>
                 </div>
             }

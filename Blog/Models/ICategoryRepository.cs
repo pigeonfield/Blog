@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Models
 {
-    public class ICategoryRepository
+    public interface ICategoryRepository
     {
         IEnumerable<Category> Categories { get; }
     }

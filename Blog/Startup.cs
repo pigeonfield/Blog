@@ -39,16 +39,13 @@ namespace Blog
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
 
-            
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Blog}/{action=Index}/{id?}"
-                    );
-
-            });
+                name: "default",
+                template: "{controller=Blog} /{action = Index}/{id?}");
+            }
+            );
         }
     }
 }

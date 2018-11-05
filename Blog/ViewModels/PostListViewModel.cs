@@ -8,10 +8,8 @@ namespace Blog.ViewModels
 {
     public class PostsListViewModel
     {
-
         public IEnumerable<Post> Posts { get; set; }
 
-        public string CurrentCategory { get; set; }
-
+       
     }
 }

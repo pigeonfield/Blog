@@ -7,11 +7,9 @@ namespace Blog.Models
 {
     public class MockPostRepository : IPostRepository
     {
-        public IEnumerable<Post> Posts
+        public IEnumerable<Post> GetPosts()
         {
-            get
-            {
-                return new List<Post>
+            return new List<Post>()
                 {
                     new Post {PostId = 1, Title = "Trip to Georgia", Date = DateTime.Parse("10/12/2017"),
                         Content ="Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, " +
@@ -24,7 +22,7 @@ namespace Blog.Models
                         "English versions from the 1914 translation by H.Rackham.",
                         ImageUrl = "photo1.jpg",
                         ImageThumbnailUrl = "photo1_m.jpg", IsPostofTheMonth = true,
-                         
+
                     },
 
                     new Post {PostId = 2, Title = "Trip to Mexico", Date = DateTime.Parse("20/12/2017"),
@@ -38,7 +36,7 @@ namespace Blog.Models
                         "English versions from the 1914 translation by H.Rackham.",
                         ImageUrl = "photo2.jpg",
                         ImageThumbnailUrl = "photo2_m.jpg", IsPostofTheMonth = false,
-                         
+
                     },
 
                     new Post {PostId = 3, Title = "Trip to Russia", Date = DateTime.Parse("29/01/2018"),
@@ -52,7 +50,7 @@ namespace Blog.Models
                         "English versions from the 1914 translation by H.Rackham.",
                         ImageUrl = "photo3.jpg",
                         ImageThumbnailUrl = "photo3_m.jpg", IsPostofTheMonth = true,
-                         
+
                     },
 
                     new Post {PostId = 4, Title = "Trip to Norway", Date = DateTime.Parse("13/01/2018"),
@@ -66,7 +64,7 @@ namespace Blog.Models
                         "English versions from the 1914 translation by H.Rackham.",
                         ImageUrl = "photo4.jpg",
                         ImageThumbnailUrl = "photo4_m.jpg", IsPostofTheMonth = false,
-                         
+
                     },
 
                     new Post {PostId = 5, Title = "Trip to Russia", Date = DateTime.Parse("29/03/2018"),
@@ -80,7 +78,7 @@ namespace Blog.Models
                         "English versions from the 1914 translation by H.Rackham.",
                         ImageUrl = "photo5.jpg",
                         ImageThumbnailUrl = "photo5_m.jpg", IsPostofTheMonth = true,
-                         
+
                     },
 
                     new Post {PostId = 6, Title = "Trip to Norway", Date = DateTime.Parse("13/02/2018"),
@@ -94,25 +92,24 @@ namespace Blog.Models
                         "English versions from the 1914 translation by H.Rackham.",
                         ImageUrl = "photo6.jpg",
                         ImageThumbnailUrl = "photo6_m.jpg", IsPostofTheMonth = false,
-                         
+
                     }
-
-
                 };
-            }
-
         }
 
-        public IEnumerable<Post> PostsOfTheMonth { get; }
-    
+        public IEnumerable<Post> PostsOfTheMonth()
+        {
+            return null;
+        }
+
         public Post GetPostById(int postId)
         {
-           throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-    
+
     }
 
 
-    
+
 }

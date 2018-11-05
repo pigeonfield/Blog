@@ -7,8 +7,8 @@ namespace Blog.Models
 {
     public interface IPostRepository
     {
-        IEnumerable<Post> Posts { get; }
-        IEnumerable<Post> PostsOfTheMonth { get; }
+        IEnumerable<Post> GetPosts();
+        IEnumerable<Post> PostsOfTheMonth();
 
         Post GetPostById(int postId);
     }

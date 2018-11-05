@@ -6,38 +6,26 @@ using System.Threading.Tasks;
 
 namespace Blog.Models
 {
-    public class PostRepository: IPostRepository
+    public class PostRepository : IPostRepository
     {
-
-        private readonly AppDbContext _appDbContext; 
+        private readonly AppDbContext _appDbContext;
 
         public PostRepository(AppDbContext appDbContext)
         {
-            _appDbContext = appDbContext; 
-        }
-
-        public IEnumerable<Post> Posts
-        {
-            get
-            {
-                return _appDbContext.Posts.Include(c => c.Category);
-            }
-
-        }
-
-
-        public IEnumerable<Post> PostsOfTheMonth
-        {
-            get
-            {
-                return _appDbContext.Posts.Include(c => c.Category).Where(p => p.IsPostofTheMonth);
-            }
-
+            _appDbContext = appDbContext;
         }
 
         public Post GetPostById(int postId)
         {
-            return _appDbContext.Posts.FirstOrDefault(p => p.PostId == postId);
+            return _appDbContext.Posts.Include(c => c.Category).FirstOrDefault(p => p.PostId == postId);
+        }
+
+        public IEnumerable<Post> GetPosts()
+            => _appDbContext.Posts.Include(c => c.Category);
+        
+        IEnumerable<Post> IPostRepository.PostsOfTheMonth()
+        {
+            return _appDbContext.Posts.Include(c => c.Category).Where(p => p.IsPostofTheMonth);
         }
     }
 }

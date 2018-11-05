@@ -170,30 +170,20 @@ div.images-container {
     }
 
 
-    /*@media (min-width: 768px) {
-    .footer {
-        position: fixed;
-    }
-}
-
-@media (min-width: 992px) {
-    .footer {
-        position: fixed;
-    }
-}
-
-@media (min-width: 1200px) {
-    .footer {
-        position: fixed;
-    }
-}*/
-
-    .button-post {
-        z-index: 2;
-        position: absolute;
-    }
 
 
     .label-contact {
         font-size: 24px;
     }
+
+
+.btn-custom {
+    
+    border-radius: 0px;
+    z-index: 2;
+    position: absolute;
+    color: #333;
+    background-color: #fff;
+    opacity: 0.8;
+    border-color: transparent;
+}

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blog.Models;
+using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Controllers
 {
+    [Route("[controller]")]
     public class PostController : Controller
     {
         private readonly IPostRepository _postRepository;
@@ -23,9 +25,23 @@ namespace Blog.Controllers
         //    return 
         //}
 
-        public ViewResult Show()
+        [HttpGet("show/{postId}")]
+        public IActionResult Show(int postId)
         {
-            return View();
+            if (postId <= 0)
+            {
+                return BadRequest("Invalid postId");
+            }
+
+            var post = _postRepository.GetPostById(postId);
+            if (post == null)
+            {
+                return NotFound("No such post");
+            }
+
+            var postVM = new PostViewModel(post);
+
+            return View(postVM);
         }
     }
 }

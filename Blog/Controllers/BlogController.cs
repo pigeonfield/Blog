@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Blog.Controllers
 {
+    [Route("/")]
     public class BlogController : Controller
     {
         private readonly IPostRepository _postRepository;
@@ -18,7 +19,6 @@ namespace Blog.Controllers
             _postRepository = postRepository;
             _categoryRepository = categoryRepository;
         }
-
        
         public IActionResult Index()
         {
@@ -34,10 +34,12 @@ namespace Blog.Controllers
         [HttpGet("posts")]
         public IActionResult Posts()
         {
-            PostsListViewModel postsListViewModel = new PostsListViewModel();
-            postsListViewModel.Posts = _postRepository.Posts;
+            PostsListViewModel postsListViewModel = new PostsListViewModel()
+            {
+                Posts = _postRepository.GetPosts(),
+                
+            };
 
-            postsListViewModel.CurrentCategory = "Europe";
             return View(postsListViewModel);
         }
 
