@@ -18,47 +18,26 @@
                 <div class="nav-img">
                     <img src="~/Images/002-travel-1.svg" />
                 </div>
+
                 <label for="toggle">&#9776;</label>
                 <input type="checkbox" id="toggle"/>
                 <div class="menu">
                     
-                        <a asp-area="" asp-controller="Blog" asp-action="Index">Home</a>
-                        <a asp-area="" asp-controller="Blog" asp-action="About">About</a>
-                        <a asp-area="" asp-controller="Blog" asp-action="Posts">Posts</a>
-                        <a asp-area="" asp-controller="Blog" asp-action="Contact">Contact</a>
+                    <a asp-area="" asp-controller="Blog" asp-action="Index">Home</a>
+                    <a asp-area="" asp-controller="Blog" asp-action="About">About</a>
+                    <a asp-area="" asp-controller="Blog" asp-action="Posts">Posts</a>
+                    <a asp-area="" asp-controller="Contact" asp-action="Contact">Contact</a>
                     
                 </div>
             </div>
 
-            @*<div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
         </div>
-
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a asp-area="" asp-controller="Blog" asp-action="Index">Home</a></li>
-                <li><a asp-area="" asp-controller="Blog" asp-action="About">About</a></li>
-                <li><a asp-area="" asp-controller="Blog" asp-action="Posts">Posts</a></li>
-                <li><a asp-area="" asp-controller="Blog" asp-action="Contact">Contact</a></li>
-            </ul>
-        </div>*@
-        </div>
-        </nav>
-
-
-
+    </nav>
 
 
             <div class="container body-content">
-
                 @RenderBody()
-
             </div>
-
 
             <footer class="footer">
                 blablabla

@@ -43,10 +43,6 @@ namespace Blog.Controllers
             return View(postsListViewModel);
         }
 
-        [HttpGet("contact")]
-        public IActionResult Contact()
-        {
-            return View();
-        }
+
     }
 }
