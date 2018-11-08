@@ -26,7 +26,11 @@ namespace Blog.Services
                 message.To.Add("alexandra12@wp.pl");
 
                 await smtp.SendMailAsync(message);
+
+                
             }
+
+            
         }
 
 
