@@ -36,8 +36,15 @@ namespace Blog.ViewModels
             PostId = post.PostId;
             Title = post.Title;
             Date = post.Date;
+            Content = post.Content;
+            ImageUrl = post.ImageUrl;
+            ImageThumbnailUrl = post.ImageThumbnailUrl;
+            IsPostofTheMonth = post.IsPostofTheMonth;
+            
 
             CategoryName = post.Category?.CategoryName;
         }
+
+
     }
 }

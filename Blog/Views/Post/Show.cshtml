@@ -1,23 +1,46 @@
 ﻿@model Blog.ViewModels.PostViewModel
 
+@{
+    ViewBag.Title = "Blablabla";
+
+}
 
 
+<div class="post-show">
 
-<div class="row">
-   
+    <div>
         <div>
-            
-
-                <img src="~/Images/@Model.ImageUrl" alt="" />
-                
-                    <div>
-                        <h3>@Html.DisplayFor(model => model.Title)</h3>
-                        <h4>@Html.ValueFor(model => model.Date, "{0:dd/MM/yyyy}")</h4>
-                        <p>@Html.DisplayFor(model => model.Content) </p>
-
-                    </div>
-                
-            
+            <h3 class="post-title">@Html.DisplayFor(model => model.Title)</h3>
         </div>
-    
+
+        <div>
+            <img src="~/Images/@Html.DisplayFor(model => model.ImageUrl)" alt="" class="image-show" />
+        </div>
+
+
+        <div>
+
+            <h4>@Html.ValueFor(model => model.Date, "{0:dd/MM/yyyy}")</h4>
+            <p>@Html.DisplayFor(model => model.Content) </p>
+
+        </div>
+
+        <div>
+            <a asp-area="" asp-controller="Blog" asp-action="Posts">Back</a>
+        </div>
+        <br />
+
+        <h5><i>You may also like:</i></h5>
+
+        @foreach (Post p in ViewBag.RandomPosts)
+        {
+            <p>@p.Title</p>
+        }
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+
 </div>

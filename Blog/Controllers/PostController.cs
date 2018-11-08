@@ -41,7 +41,15 @@ namespace Blog.Controllers
 
             var postVM = new PostViewModel(post);
 
+            ShowRandomPost();
+
             return View(postVM);
+        }
+
+        private void ShowRandomPost()
+        {
+            var randomposts = _postRepository.RandomPosts();
+            ViewBag.RandomPosts = randomposts;
         }
     }
 }

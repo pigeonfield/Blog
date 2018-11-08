@@ -4,12 +4,15 @@
 
        
         <div class="row">
+            <h3 class="posts-title">Latest posts</h3>
             @foreach (var post in Model.Posts)
             {
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="images-container">
 
                         <img class="thumbnail img-responsive" src="~/Images/@post.ImageThumbnailUrl" alt="" />
+
+                        
                         <a asp-controller="Post" asp-action="Show" asp-route-id="@post.PostId" class="btn btn-default btn-custom" >
                             
                                 <div>

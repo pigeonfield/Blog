@@ -107,6 +107,11 @@ namespace Blog.Models
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Post> RandomPosts()
+        {
+            return null;
+        }
+
 
     }
 

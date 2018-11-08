@@ -9,6 +9,7 @@ namespace Blog.Models
     {
         IEnumerable<Post> GetPosts();
         IEnumerable<Post> PostsOfTheMonth();
+        IEnumerable<Post> RandomPosts();
 
         Post GetPostById(int postId);
     }

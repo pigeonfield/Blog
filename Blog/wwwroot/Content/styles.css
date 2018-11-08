@@ -187,3 +187,19 @@ div.images-container {
     opacity: 0.8;
     border-color: transparent;
 }
+
+
+.post-show {
+    display: block;
+    padding: 4px;
+
+}
+
+.image-show  {
+    max-width: 100%;
+    height: auto;
+}
+
+.post-show, .posts-title {
+    text-align: center;
+}
