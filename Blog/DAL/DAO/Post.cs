@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blog.DAL.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,5 +25,7 @@ namespace Blog.Models
         public int CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
+
+        public List<Comment> Comments { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace Blog.Models
             _appDbContext = appDbContext;
         }
 
-        public Post GetPostById(int postId)
+        public Post GetPostById(int postId)     //used in PostController in Show action 
         {
             return _appDbContext.Posts.Include(c => c.Category).FirstOrDefault(p => p.PostId == postId);
         }

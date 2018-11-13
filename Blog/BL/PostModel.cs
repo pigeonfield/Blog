@@ -22,9 +22,9 @@ namespace Blog.BL
             return new PostViewModel(post);
         }
 
-        public PostViewModel GetPosts()
-        {
+        //public PostViewModel GetPosts()
+        //{
 
-        }
+        //}
     }
 }
