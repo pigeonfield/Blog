@@ -6,12 +6,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace Blog.Models
 {
     public class Message
     {
-        //private readonly IMailService _mailService;
-
         [Required(ErrorMessage = "Name is required")]
         [StringLength(15, MinimumLength = 4)]
         public string Sender { get; set; }
@@ -32,3 +31,6 @@ namespace Blog.Models
     }
 
 }
+
+
+

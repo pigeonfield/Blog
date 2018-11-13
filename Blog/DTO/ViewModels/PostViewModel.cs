@@ -44,7 +44,5 @@ namespace Blog.ViewModels
 
             CategoryName = post.Category?.CategoryName;
         }
-
-
     }
 }

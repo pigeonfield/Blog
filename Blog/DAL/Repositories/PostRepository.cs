@@ -9,7 +9,7 @@ namespace Blog.Models
 {
     public class PostRepository : IPostRepository
     {
-        private readonly AppDbContext _appDbContext;
+        private readonly AppDbContext _appDbContext;   //access to appdbcontext 
 
         public PostRepository(AppDbContext appDbContext)
         {
@@ -34,8 +34,6 @@ namespace Blog.Models
             var randomPosts = _appDbContext.Posts.Include(c => c.Category).OrderBy(r => Guid.NewGuid()).Take(3);
             
             return randomPosts;             
-        }
-
-        
+        }        
     }
 }

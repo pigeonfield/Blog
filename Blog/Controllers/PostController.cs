@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.BL;
 using Blog.Models;
 using Blog.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -11,39 +12,34 @@ namespace Blog.Controllers
     [Route("[controller]")]
     public class PostController : Controller
     {
-        private readonly IPostRepository _postRepository;
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IPostRepository _postRepository;
 
-        public PostController(IPostRepository postRepository, ICategoryRepository categoryRepository)
+        private readonly IPostModel _postModel;
+
+        public PostController(IPostModel postModel, ICategoryRepository categoryRepository, IPostRepository postRepository)
         {
-            _postRepository = postRepository;
+            _postModel = postModel;
             _categoryRepository = categoryRepository;
+            _postRepository = postRepository;
         }
 
-        //public IActionResult Create()
-        //{
-        //    return 
-        //}
+
 
         [HttpGet("show/{postId}")]
         public IActionResult Show(int postId)
         {
             if (postId <= 0)
-            {
                 return BadRequest("Invalid postId");
-            }
+            
+            var post = _postModel.GetPostById(postId);
 
-            var post = _postRepository.GetPostById(postId);
             if (post == null)
-            {
-                return NotFound("No such post");
-            }
-
-            var postVM = new PostViewModel(post);
+                return NotFound("Post not found");
 
             ShowRandomPost();
 
-            return View(postVM);
+            return View(post);
         }
 
         private void ShowRandomPost()

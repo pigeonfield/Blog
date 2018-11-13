@@ -11,10 +11,5 @@ namespace Blog.Models
         public string CategoryName { get; set; }
         public string CategoryDescr { get; set; }
         public List<Post> Posts { get; set; }
-
-        internal object Where(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

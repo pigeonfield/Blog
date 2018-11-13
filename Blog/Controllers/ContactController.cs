@@ -12,15 +12,12 @@ namespace Blog.Controllers
 {
     public class ContactController : Controller
     {
-               
-
         [HttpGet("contact")]
         public IActionResult Contact()
         {
             return View();
         }
-
-
+        
         [HttpPost("contact")]
         public ActionResult Contact(Message contactMessage)
         {

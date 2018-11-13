@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.BL;
 using Blog.Models;
 using Blog.Services;
 using Microsoft.AspNetCore.Builder;
@@ -25,11 +26,13 @@ namespace Blog
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); //info that EF core is being used
 
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IPostRepository, PostRepository>();
             services.AddTransient<IMailService, MailService>();
+
+            services.AddTransient<IPostModel, PostModel>();
 
             services.AddMvc();
         }

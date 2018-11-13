@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Models
 {
-    public class MockCategoryRepository :ICategoryRepository
+    public class MockCategoryRepository : ICategoryRepository
     {
         public IEnumerable<Category> Categories
         {

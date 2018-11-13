@@ -52,7 +52,6 @@ namespace Blog.Models
                         ImageThumbnailUrl = "photo2_m.jpg",
                         IsPostofTheMonth = false,
                         Category = Categories["America"]
-
                     },
 
                     new Post

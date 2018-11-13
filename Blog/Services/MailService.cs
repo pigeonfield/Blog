@@ -9,7 +9,6 @@ namespace Blog.Services
 {
     public class MailService : IMailService
     {
-
         public async Task Send(Message msg)
         {
             using (var smtp = new SmtpClient())
@@ -28,11 +27,7 @@ namespace Blog.Services
                 await smtp.SendMailAsync(message);
 
                 
-            }
-
-            
+            }            
         }
-
-
     }
 }
