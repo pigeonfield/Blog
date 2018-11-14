@@ -1,0 +1,25 @@
+﻿@model Blog.DAL.DAO.Comment
+
+<div class="form-group">
+    <label asp-for="CommentAuthor" class="col-md-2 control-label">Author</label>
+    <div class="col-md-5">
+        <input asp-for="CommentAuthor" class="form-control" />
+        <span asp-validation-for="CommentAuthor" class="text-danger"></span>
+    </div>
+</div>
+
+<div class="form-group">
+    <label asp-for="CommentContent" class="col-md-2 control-label">Your comment</label>
+    <div class="col-md-5">
+        <input asp-for="CommentContent" class="form-control" />
+        <span asp-validation-for="CommentContent" class="text-danger"></span>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-5">
+        <input type="submit" class="btn btn-default" value="Publish comment" />
+    </div>
+</div>
+

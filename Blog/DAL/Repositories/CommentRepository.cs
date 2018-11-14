@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Blog.DAL.Repositories
 {
-    public class CommentRepository
+    public class CommentRepository : ICommentRepository
     {
 
         private readonly AppDbContext _appDbContext;   //access to appdbcontext 
@@ -18,12 +18,14 @@ namespace Blog.DAL.Repositories
             _appDbContext = appDbContext;
         }
 
-        public Comment GetCommentById(int commentId)     //used in PostController in Show action 
+        public Comment GetCommentById(int commentId)     
         {
             return _appDbContext.Comments.Include(p => p.Post).FirstOrDefault(c => c.CommentId == commentId);
         }
 
         public IEnumerable<Comment> GetComments()
-            => _appDbContext.Comments.Include(p => p.Post);
+        {
+            return _appDbContext.Comments.Include(p => p.Post);
+        }
     }
 }

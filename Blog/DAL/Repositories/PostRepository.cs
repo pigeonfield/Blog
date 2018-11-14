@@ -18,7 +18,7 @@ namespace Blog.Models
 
         public Post GetPostById(int postId)     //used in PostController in Show action 
         {
-            return _appDbContext.Posts.Include(c => c.Category).FirstOrDefault(p => p.PostId == postId);
+            return _appDbContext.Posts.Include(c => c.Category).Include(d=> d.Comments).FirstOrDefault(p => p.PostId == postId);
         }
 
         public IEnumerable<Post> GetPosts()

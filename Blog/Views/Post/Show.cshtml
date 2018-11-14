@@ -25,6 +25,36 @@
 
         </div>
 
+        <div class="comments">
+            <h4>Comments:</h4>
+
+            @foreach (var com in Model.Comments)
+            {
+                <div>
+                    <h4>@com.CommentAuthor</h4>
+                    <h6>@com.CommentContent</h6>
+
+                </div>
+            }
+
+
+            <div class="postshow-commentform">
+                <a asp-area="" asp-controller="Comment" asp-action="Create">Add comment!</a>
+
+                @using (Html.BeginForm())
+                {
+                    @(Html.EditorFor(m => m.Comments))
+                }
+
+            </div>
+        </div>
+
+
+        <br />
+        <br />
+        <br />
+        <br />
+
         <div>
             <a asp-area="" asp-controller="Blog" asp-action="Posts">Back</a>
         </div>

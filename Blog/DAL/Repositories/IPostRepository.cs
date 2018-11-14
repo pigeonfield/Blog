@@ -7,7 +7,7 @@ namespace Blog.Models
 {
     public interface IPostRepository
     {
-        IEnumerable<Post> GetPosts();
+        IEnumerable<Post> GetPosts();  //tylko deklaracje, bez ciała metody
         IEnumerable<Post> PostsOfTheMonth();
         IEnumerable<Post> RandomPosts();
 

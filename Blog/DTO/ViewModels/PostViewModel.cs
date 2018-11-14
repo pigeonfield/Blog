@@ -1,4 +1,5 @@
-﻿using Blog.Models;
+﻿using Blog.DAL.DAO;
+using Blog.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace Blog.ViewModels
 
         public string CategoryName { get; set; }
 
+        public List<Comment> Comments { get; set; }
+
         public PostViewModel()
         {       
         }
@@ -40,7 +43,7 @@ namespace Blog.ViewModels
             ImageUrl = post.ImageUrl;
             ImageThumbnailUrl = post.ImageThumbnailUrl;
             IsPostofTheMonth = post.IsPostofTheMonth;
-            
+            Comments = post.Comments;
 
             CategoryName = post.Category?.CategoryName;
         }

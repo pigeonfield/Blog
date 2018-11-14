@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Blog.BL;
+using Blog.DAL.Repositories;
 using Blog.Models;
 using Blog.Services;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,7 @@ namespace Blog
 
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IPostRepository, PostRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
             services.AddTransient<IMailService, MailService>();
 
             services.AddTransient<IPostModel, PostModel>();
