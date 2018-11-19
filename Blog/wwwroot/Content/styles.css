@@ -134,11 +134,6 @@ div.images-container {
     clear: both;
 }
 
-/*#header {
-    background-image: url("~/Images/header.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}*/
 
 .header-img > img {
     width: 100%;
@@ -148,64 +143,55 @@ div.images-container {
     
 }
 
-.header-quote {
-    max-width: 100% !important;
-}
-
-    .header-left > img {
-        max-width: 100%;
-    }
-
-.header-right {
-
-    width: 50%;
-    float: left;
-    position: relative;
-    
-    /*clear: both;*/
-}
-
-.header-right-up {
-    height: 50%;
-    float: left;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-}
-
-.header-right-up > img {
-    width: 100%
-}
-
-.header-right-down {
-    height: 50%;
-    float: left;
-    position: relative;
-}
-
-    .header-right-down > img {
-        width: 100%;
-    }
 
 
-/*.header-right > img {
-    max-width: 100%;
-}*/
-
-@media only screen and (max-width: 500px) {
-    .header-left {
-        width: 100%;
-        
-        background-color: mediumpurple;
-    }
-
-    .header-right {
-        width: 100%;
-        
-        background-color: aqua;
+@media only screen and (min-width: 951px) {
+    .header-quote {
+        max-width: 100% !important;
+        position: absolute;
+        z-index: 2;
+        margin-top: 30%;
+        margin-left: 10%;
+        margin-right: 10%;
+        font-family: 'Shadows Into Light Two', cursive;
+        font-size: 40px;
+        font-weight: 400;
+        color: white;
     }
 }
+
+    @media only screen and (max-width: 950px) {
+        .header-quote {
+            max-width: 100% !important;
+            position: absolute;
+            z-index: 2;
+            margin-top: 20%;
+            font-family: 'Shadows Into Light Two', cursive;
+            font-size: 30px;
+            font-weight: 400;
+            color: white;
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .header-quote {
+            max-width: 100% !important;
+            position: absolute;
+            z-index: 2;
+            margin-top: 10%;
+            font-family: 'Shadows Into Light Two', cursive;
+            font-size: 20px;
+            font-weight: 400;
+            color: white;
+        }
+    }
+
+.quote {
+    color: white; 
+    text-align: center;
+}
+
+
 
     section {
         margin-bottom: 50px;
