@@ -27,7 +27,7 @@ namespace Blog
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); //info that EF core is being used
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))); 
 
             services.AddTransient<ICategoryRepository, CategoryRepository>();
             services.AddTransient<IPostRepository, PostRepository>();
@@ -42,7 +42,9 @@ namespace Blog
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
             app.UseDeveloperExceptionPage();
+                 
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();

@@ -1,28 +1,30 @@
 ﻿@model PostsListViewModel
 
+@{
+    ViewData["Title"] = "Posts";
+}
 
 
-       
-        <div class="row">
-            <h3 class="posts-title">Latest posts</h3>
-            @foreach (var post in Model.Posts)
-            {
-                <div class="col-sm-4 col-lg-4 col-md-4">
-                    <div class="images-container">
+<div class="row">
+    <h3 class="posts-title">Latest posts</h3>
+    @foreach (var post in Model.Posts)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="images-container">
 
-                        <img class="thumbnail img-responsive" src="~/Images/@post.ImageThumbnailUrl" alt="" />
+                <img class="thumbnail img-responsive" src="~/Images/@post.ImageThumbnailUrl" alt="" />
 
-                        
-                        <a asp-controller="Post" asp-action="Show" asp-route-id="@post.PostId" class="btn btn-default btn-custom" >
-                            
-                                <div>
-                                    <h4>@post.Title</h4>
-                                    <h6>@post.Date.ToString("dd/MM/yyyy")</h6>
 
-                                </div>
-                            
-                        </a>
+                <a asp-controller="Post" asp-action="Show" asp-route-id="@post.PostId" class="btn btn-default btn-custom">
+
+                    <div>
+                        <h4>@post.Title</h4>
+                        <h6>@post.Date.ToString("dd/MM/yyyy")</h6>
+
                     </div>
-                </div>
-            }
+
+                </a>
+            </div>
         </div>
+    }
+</div>

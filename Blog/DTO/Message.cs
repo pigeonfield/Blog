@@ -1,4 +1,5 @@
-﻿using Blog.Models.Enums;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Blog.Models.Enums;
 using Blog.Services;
 using System;
 using System.Collections.Generic;

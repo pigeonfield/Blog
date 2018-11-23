@@ -186,6 +186,18 @@ div.images-container {
         }
     }
 
+@media only screen and (max-width: 300px) {
+    .header-quote {
+        max-width: 100% !important;
+        position: absolute;
+        z-index: 2;
+        margin-top: 5%;
+        font-family: 'Shadows Into Light Two', cursive;
+        font-size: 16px;
+        font-weight: 400;
+        color: white;
+    }
+}
 .quote {
     color: white; 
     text-align: center;
@@ -210,13 +222,19 @@ div.images-container {
 
 .btn-custom {
     
-    border-radius: 0px;
+    border-radius: 8px;
     z-index: 2;
     position: absolute;
     color: #333;
     background-color: #fff;
     opacity: 0.8;
     border-color: transparent;
+    border-radius: 8px;
+}
+
+
+.thumbnail {
+    -webkit-filter: grayscale(75%);
 }
 
 
@@ -233,4 +251,29 @@ div.images-container {
 
 .post-show, .posts-title {
     text-align: center;
+}
+    .post-title, .posts-title {
+        font-family: 'Shadows Into Light Two', cursive;
+    }
+.comments {
+    text-align: left;
+}
+
+.random-post  {
+    justify-content: center;
+}
+
+hr {
+    border: 1px solid darkgrey;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    /* reset the text-align */
+    text-align: left;
+    /* inline-block space fix */
+    margin-right: -4px;
+    text-align: center;
+
 }

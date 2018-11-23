@@ -19,9 +19,18 @@ namespace Blog.Controllers
         }
         
         [HttpPost("contact")]
-        public ActionResult Contact(Message contactMessage)
+        public IActionResult Contact(Message contactMessage)
         {
-            return View("SendForm", contactMessage);
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("MessageSent");
+            }
+            return View(contactMessage);
+        }
+
+        public IActionResult MessageSent()
+        {
+            return View();
         }
     }
 }

@@ -47,5 +47,21 @@ namespace Blog.Controllers
             var randomposts = _postRepository.RandomPosts();
             ViewBag.RandomPosts = randomposts;
         }
+
+
+        public IActionResult Create()
+        {
+            return null;
+        }
+
+        public IActionResult Edit(int postId)
+        {
+            return null;
+        }
+
+        public IActionResult Delete(int postId)
+        {
+            return null;
+        }
     }
 }
