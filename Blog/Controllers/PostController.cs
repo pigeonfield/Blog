@@ -49,19 +49,19 @@ namespace Blog.Controllers
         }
 
 
-        public IActionResult Create()
-        {
-            return null;
-        }
+        //public IActionResult Create(PostViewModel post)
+        //{
+        //    return null;
+        //}
 
-        public IActionResult Edit(int postId)
-        {
-            return null;
-        }
+        //public IActionResult Edit(int postId)
+        //{
+        //    return null;
+        //}
 
-        public IActionResult Delete(int postId)
-        {
-            return null;
-        }
+        //public IActionResult Delete(int postId)
+        //{
+        //    return null;
+        //}
     }
 }

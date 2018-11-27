@@ -11,5 +11,9 @@ namespace Blog.DAL.Repositories
         IEnumerable<Comment> GetComments();  
         
         Comment GetCommentById(int commentId);
+
+        Comment AddComment(Comment comment);
+
+        Comment AddComment(Comment comment, int postId);
     }
 }

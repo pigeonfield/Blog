@@ -270,10 +270,18 @@ hr {
 .col-centered {
     display: inline-block;
     float: none;
-    /* reset the text-align */
     text-align: left;
-    /* inline-block space fix */
     margin-right: -4px;
     text-align: center;
 
 }
+
+.btn-contact {
+    background-color: black;
+    color: white;
+}
+
+.btn-contact:hover {
+    background-color: darkgrey;
+    color: white;
+} 

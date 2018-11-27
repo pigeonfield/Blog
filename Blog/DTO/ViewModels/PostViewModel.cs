@@ -25,10 +25,14 @@ namespace Blog.ViewModels
 
         public string CategoryName { get; set; }
 
-        public List<Comment> Comments { get; set; }
+        public ICollection<Comment> Comments { get; set; }
+        
+        public ICollection<Category> Category { get; set; }
+
+        public Comment FormModel { get; set; } = new Comment();   //creating a new empty comment 
 
         public PostViewModel()
-        {       
+        {
         }
 
         public PostViewModel(Post post)
@@ -43,9 +47,35 @@ namespace Blog.ViewModels
             ImageUrl = post.ImageUrl;
             ImageThumbnailUrl = post.ImageThumbnailUrl;
             IsPostofTheMonth = post.IsPostofTheMonth;
-            Comments = post.Comments;
+
+            Comments = post.Comments ?? new List<Comment>();
+
+            FormModel.Post = post;
 
             CategoryName = post.Category?.CategoryName;
         }
+
+
+
+
+        public class CommentViewModel
+        {
+            public CommentViewModel()
+            {
+
+            }
+
+            public CommentViewModel(Comment comment)
+            {
+                Comment = comment;
+            }
+
+            public Comment Comment { get; set; }
+            public DateTime CommentDate { get; set; }
+            public string CommentContent { get; set; }
+            public string CommentAuthor { get; set; }
+        }
+
+
     }
 }

@@ -9,6 +9,8 @@ namespace Blog.Models
 {
     public class AppDbContext: DbContext   //inherits from built-in class
     {
+        internal object Post;
+
         public AppDbContext()
         {
         }
@@ -25,3 +27,4 @@ namespace Blog.Models
         public DbSet<Comment> Comments { get; set; }
     }
 }
+  

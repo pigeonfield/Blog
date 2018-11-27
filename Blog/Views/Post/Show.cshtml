@@ -1,4 +1,6 @@
-﻿@model Blog.ViewModels.PostViewModel
+﻿@using Blog.DAL.DAO
+
+@model Blog.ViewModels.PostViewModel
 
 @{
     ViewBag.Title = Model.Title;
@@ -32,24 +34,54 @@
         </div>
         <hr />
         <div class="comments">
-            <h4>Comments:</h4>
+
+            <h4><i>Comments:</i></h4>
+
+            <div class="postshow-commentform">
+
+
+                <form asp-controller="Comment" asp-action="Create" asp-route-id="@Model.PostId" method="post" class="form-horizontal" role="form" autocomplete="off">
+
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+                    <div class="form-group">
+                        <label asp-for="FormModel.CommentAuthor" class="col-md-2 control-label">Name</label>
+                        <div class="col-md-5">
+                            <input name="CommentAuthor" class="form-control" />
+                            <span asp-validation-for="FormModel.CommentAuthor" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="FormModel.CommentContent" class="col-md-2 control-label">Comment</label>
+                        <div class="col-md-5">
+                            <input name="@nameof(Comment.CommentContent)" class="form-control" /> 
+                            <span asp-validation-for="FormModel.CommentContent" class="text-danger"></span>
+                        </div>
+                    </div>
+                                       
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-5">
+                            <input type="submit" class="btn btn-contact" value="Add comment!" />
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
 
             @foreach (var com in Model.Comments)
             {
                 <div>
-                    <h4>@com.CommentAuthor</h4>
+                    <h4>@com.CommentAuthor (@Html.ValueFor(model => com.CommentDate, "{0:dd/MM/yyyy}"))</h4>
                     <h6>@com.CommentContent</h6>
+
 
                 </div>
             }
 
 
-            <div class="postshow-commentform">
-                <a asp-area="" asp-controller="Comment" asp-action="Create">Add comment!</a>
-
-                <p>place for comment form</p>
-
-            </div>
         </div>
 
         <hr />

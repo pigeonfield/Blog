@@ -27,5 +27,24 @@ namespace Blog.DAL.Repositories
         {
             return _appDbContext.Comments.Include(p => p.Post);
         }
+
+        public Comment AddComment(Comment comment)
+        {
+            _appDbContext.Comments.Add(comment);
+            _appDbContext.SaveChanges();
+
+            return comment;
+        }
+
+        public Comment AddComment(Comment comment, int postId)
+        {
+            var post = _appDbContext.Posts.FirstOrDefault(p => p.PostId == postId);
+
+            if (post == null)
+                return null;
+
+            comment.Post = post;
+            return AddComment(comment);
+        }
     }
 }
