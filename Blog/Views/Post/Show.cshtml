@@ -56,11 +56,11 @@
                     <div class="form-group">
                         <label asp-for="FormModel.CommentContent" class="col-md-2 control-label">Comment</label>
                         <div class="col-md-5">
-                            <input name="@nameof(Comment.CommentContent)" class="form-control" /> 
+                            <input name="@nameof(Comment.CommentContent)" class="form-control" />
                             <span asp-validation-for="FormModel.CommentContent" class="text-danger"></span>
                         </div>
                     </div>
-                                       
+
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-5">
                             <input type="submit" class="btn btn-contact" value="Add comment!" />
@@ -73,12 +73,14 @@
 
             @foreach (var com in Model.Comments)
             {
-                <div>
-                    <h4>@com.CommentAuthor (@Html.ValueFor(model => com.CommentDate, "{0:dd/MM/yyyy}"))</h4>
-                    <h6>@com.CommentContent</h6>
+                
+                    <div>
+                        <h4>@com.CommentAuthor (@Html.ValueFor(model => com.CommentDate, "{0:dd/MM/yyyy}"))</h4>
+                        <h6>@com.CommentContent</h6>
 
 
-                </div>
+                    </div>
+                
             }
 
 
@@ -90,13 +92,15 @@
             <h3><i>You may also like:</i></h3>
 
             @foreach (Post p in ViewBag.RandomPosts)
-            {
-                <div class="col-sm-3 col-lg-3 col-md-3 col-centered">
-                    <p>@p.Title</p>
-                    <p><img class="thumbnail img-responsive" src="~/Images/@p.ImageThumbnailUrl" alt="" /></p>
-                </div>
-            }
-        </div>    
+                {
+                    <a asp-controller="Post" asp-action="Show" asp-route-id="p.PostId">
+                        <div class="col-sm-3 col-lg-3 col-md-3 col-centered">
+                            <p>@p.Title</p>
+                            <p><img class="thumbnail img-responsive" src="~/Images/@p.ImageThumbnailUrl" alt="" /></p>
+                        </div>
+                    </a>
+                 }
+            </div>    
         <br />
         <br />
 

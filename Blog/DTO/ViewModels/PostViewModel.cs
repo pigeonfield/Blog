@@ -57,25 +57,6 @@ namespace Blog.ViewModels
 
 
 
-
-        public class CommentViewModel
-        {
-            public CommentViewModel()
-            {
-
-            }
-
-            public CommentViewModel(Comment comment)
-            {
-                Comment = comment;
-            }
-
-            public Comment Comment { get; set; }
-            public DateTime CommentDate { get; set; }
-            public string CommentContent { get; set; }
-            public string CommentAuthor { get; set; }
-        }
-
-
+    
     }
 }

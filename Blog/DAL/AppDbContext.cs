@@ -9,8 +9,7 @@ namespace Blog.Models
 {
     public class AppDbContext: DbContext   //inherits from built-in class
     {
-        internal object Post;
-
+        
         public AppDbContext()
         {
         }
