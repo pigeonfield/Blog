@@ -44,8 +44,7 @@ namespace Blog.Controllers
                 comment.CommentDate = DateTime.UtcNow;
                 savedComment = _commentRepository.AddComment(comment, id);
 
-                //db.Comments.Add(comment);
-                //db.SaveChanges();
+    
 
             }
             else
@@ -61,15 +60,13 @@ namespace Blog.Controllers
             return RedirectToAction("Show", "Post", new RouteValueDictionary { { "postId", savedComment.Post.PostId } });
         }
 
-        //public IActionResult Edit()
-        //{
-        //    return View();
-        //}
 
-        //public IActionResult Delete()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        public IActionResult Delete(Comment comment, int id)
+        {
+            _commentRepository.DeleteComment(comment, id);
+            return RedirectToAction("Show", "Post", new RouteValueDictionary { { "postId", comment.Post.PostId } });
+        }
 
 
     }

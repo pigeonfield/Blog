@@ -46,5 +46,12 @@ namespace Blog.DAL.Repositories
             comment.Post = post;
             return AddComment(comment);
         }
+
+        public Comment DeleteComment(Comment comment, int comId)
+        {
+            _appDbContext.Comments.RemoveRange();
+            _appDbContext.SaveChanges();
+            return null;
+        }
     }
 }

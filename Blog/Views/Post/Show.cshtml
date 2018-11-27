@@ -35,7 +35,9 @@
         <hr />
         <div class="comments">
 
-            <h4><i>Comments:</i></h4>
+            <h4><i>Comments (@Model.Comments.Count()):</i></h4>
+
+            
 
             <div class="postshow-commentform">
 
@@ -75,9 +77,9 @@
             {
                 
                     <div>
-                        <h4>@com.CommentAuthor (@Html.ValueFor(model => com.CommentDate, "{0:dd/MM/yyyy}"))</h4>
+                        <h5 style="font-weight: 300">@com.CommentAuthor (@Html.ValueFor(model => com.CommentDate, "{0:dd/MM/yyyy}"))</h5>
                         <h6>@com.CommentContent</h6>
-
+                        <a asp-controller="Comment" asp-action="Delete" asp-route-id="com.ComId"><p>Delete</p></a>
 
                     </div>
                 
@@ -93,7 +95,7 @@
 
             @foreach (Post p in ViewBag.RandomPosts)
                 {
-                    <a asp-controller="Post" asp-action="Show" asp-route-id="p.PostId">
+                    <a asp-controller="Post" asp-action="Show" asp-route-postId="@p.PostId">
                         <div class="col-sm-3 col-lg-3 col-md-3 col-centered">
                             <p>@p.Title</p>
                             <p><img class="thumbnail img-responsive" src="~/Images/@p.ImageThumbnailUrl" alt="" /></p>
