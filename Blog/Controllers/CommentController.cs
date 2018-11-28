@@ -24,7 +24,6 @@ namespace Blog.Controllers
             _commentRepository = commentRepository;
         }
 
-        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -43,10 +42,8 @@ namespace Blog.Controllers
             {
                 comment.CommentDate = DateTime.UtcNow;
                 savedComment = _commentRepository.AddComment(comment, id);
-
-    
-
             }
+
             else
             {
                 return BadRequest("Wrong input data");
@@ -61,11 +58,16 @@ namespace Blog.Controllers
         }
 
 
-        [HttpPost]
-        public IActionResult Delete(Comment comment, int id)
+        [HttpGet("Delete")]
+        public ActionResult Delete(Comment comment, int id)
         {
+            if (comment == null)
+            {
+                return BadRequest("Comment doesn't exist");
+            }
+
             _commentRepository.DeleteComment(comment, id);
-            return RedirectToAction("Show", "Post", new RouteValueDictionary { { "postId", comment.Post.PostId } });
+            return RedirectToAction("Posts", "Blog");
         }
 
 

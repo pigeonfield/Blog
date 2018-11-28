@@ -49,8 +49,15 @@ namespace Blog.DAL.Repositories
 
         public Comment DeleteComment(Comment comment, int comId)
         {
-            _appDbContext.Comments.RemoveRange();
-            _appDbContext.SaveChanges();
+            var comm = _appDbContext.Comments.FirstOrDefault(p => p.CommentId == comId);
+
+            if (comm != null)
+            {
+                _appDbContext.Comments.RemoveRange(comm);
+                _appDbContext.SaveChanges();
+            }
+            
+            
             return null;
         }
     }
