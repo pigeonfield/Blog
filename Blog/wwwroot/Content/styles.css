@@ -6,7 +6,7 @@
 body {
     padding-top: 50px;
     height: 100%;
-    font-family: 'Open Sans', sans-serif;
+     font-family: 'Open Sans', sans-serif;
 }
 
 h2 {
@@ -20,9 +20,21 @@ h2 {
     margin: 0 10px;
 }
 
-.menu a:hover {
-    text-decoration: none;
+
+
+    .menu a:hover {
+        text-decoration: none;
+        color: #3B6889;
+    }
+
+a {
+    color: #000000;
 }
+
+    a:hover {
+        text-decoration: none;
+        color: #3B6889;
+    }
 
 .body-content {
     padding-left: 15px;
@@ -46,6 +58,7 @@ h2 {
     margin: 0 20px 0 0; 
     float: right;
 }
+
 
 
 .nav > label {
@@ -97,11 +110,15 @@ h2 {
         text-align: right;
     }
 
+    .account-page {
+        margin-top: 20px;
+    }
+
     #toggle:checked + .menu {
         display: block;
         background-color: #ffffff;
         padding: 10px; 
-        /*margin-top: 10px;*/
+        
     }
 
     .nav-img {
@@ -122,7 +139,7 @@ div.images-container {
     width: 100%;
     background-color: #aaaaaa;
     opacity: 0.5; 
-    height: 60px;
+    height: 25px;
     position: fixed;
     z-index: 3;
 }

@@ -1,4 +1,6 @@
 ﻿using Blog.DAL.DAO;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Models
 {
-    public class AppDbContext: DbContext   //inherits from built-in class
+    public class AppDbContext: IdentityDbContext<IdentityUser>
     {
         
         public AppDbContext()
@@ -19,7 +21,7 @@ namespace Blog.Models
 
         }
 
-        public DbSet<Category> Categories { get; set; }  //db set for each domain = new table in db
+        public DbSet<Category> Categories { get; set; }  
 
         public DbSet<Post> Posts { get; set; }
 
