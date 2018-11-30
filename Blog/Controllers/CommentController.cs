@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 using Blog.DAL.DAO;
 using Blog.DAL.Repositories;
 using Blog.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
 namespace Blog.Controllers
 {
+    [Authorize]
     [Route("[controller]")]
     public class CommentController : Controller
     {
         AppDbContext db = new AppDbContext();
 
         private readonly ICommentRepository _commentRepository;
+       
 
         public CommentController(ICommentRepository commentRepository)
         {
@@ -32,7 +35,7 @@ namespace Blog.Controllers
         [HttpPost]
         public ActionResult Create(int id, Comment comment)
         {
-            if(id < 1)
+            if (id < 1)
             {
                 return BadRequest("Error");
             }
@@ -59,15 +62,16 @@ namespace Blog.Controllers
 
 
         [HttpGet("Delete")]
-        public ActionResult Delete(Comment comment, int id)
+        public ActionResult Delete(int commentId, int postId)
         {
-            if (comment == null)
+            if (commentId < 1)
             {
-                return BadRequest("Comment doesn't exist");
+                return BadRequest("comment with this id doesn't exist");
             }
 
-            _commentRepository.DeleteComment(comment, id);
-            return RedirectToAction("Posts", "Blog");
+            _commentRepository.DeleteComment(commentId);
+            return RedirectToAction("Show", "Post", new { postId = postId } );
+            
         }
 
 

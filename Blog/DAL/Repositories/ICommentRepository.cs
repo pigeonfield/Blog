@@ -16,6 +16,6 @@ namespace Blog.DAL.Repositories
 
         Comment AddComment(Comment comment, int postId);
 
-        Comment DeleteComment(Comment comment, int commentId);
+        Comment DeleteComment(int commentId);
     }
 }

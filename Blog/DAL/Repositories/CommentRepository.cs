@@ -47,7 +47,7 @@ namespace Blog.DAL.Repositories
             return AddComment(comment);
         }
 
-        public Comment DeleteComment(Comment comment, int comId)
+        public Comment DeleteComment(int comId)
         {
             var comm = _appDbContext.Comments.FirstOrDefault(p => p.CommentId == comId);
 
